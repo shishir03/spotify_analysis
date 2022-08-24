@@ -1,12 +1,12 @@
-import * as params from "./params";
-import * as songInfo from "./song_info";
+import { refresh_token, error } from "./params";
+import { getFeatures } from "./song_info";
 
 var access_token = "";
 
 $.ajax({
     url: '/refresh_token',
     data: {
-        'refresh_token': params.refresh_token
+        'refresh_token': refresh_token
     }
 }).done(function(data) {
     access_token = data.access_token;
@@ -21,13 +21,13 @@ function processInput() {
     var end = url.indexOf("?");
     var trackId = url.substring(begin, end);
 
-    if(params.error) alert("There was an error during authentication");
+    if(error) alert("There was an error during authentication");
     else {
         $("track-search").empty();
         var row1 = $("<tr></tr>");
         var header = $("<tr></tr>");
 
-        var features = songInfo.getFeatures(trackId);
+        var features = getFeatures(trackId);
         if(features == {}) alert("Error getting song data");
         else {
             var songTitle = $("<td></td>").append(features.title);
