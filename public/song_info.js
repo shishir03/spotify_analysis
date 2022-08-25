@@ -7,12 +7,9 @@ function getTitle(trackId) {
             "Authorization": "Bearer " + access_token
         },
         success: function(response) {
-            console.log(trackId);
             return response.name;
         }
     });
-
-    return "";
 }
 
 function getFeatures(trackId) {
@@ -24,7 +21,7 @@ function getFeatures(trackId) {
         success: function(response) {
             let title = getTitle(trackId);
             console.log(title);
-            if(title == "") return {};
+            if(title == undefined) return {};
 
             return {
                 title: getTitle(trackId),
