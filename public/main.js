@@ -10,9 +10,9 @@ if(error) {
             headers: {
                 'Authorization': 'Bearer ' + access_token
             },
-            success: async function(response) {
+            success: function(response) {
                 var items = response.items;
-                items.forEach(element => {
+                items.forEach(async function(element) {
                     var trackId = element.uri.substring(14);
                     var features = await getFeatures(trackId);
 
