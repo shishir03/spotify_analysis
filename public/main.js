@@ -1,4 +1,4 @@
-import { access_token } from "./params.js";
+import { error, access_token } from "./params.js";
 import { getFeatures } from "./song_info.js";
 
 if(error) {
