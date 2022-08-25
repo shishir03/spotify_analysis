@@ -1,18 +1,20 @@
 import { access_token } from "./params.js";
 
 function getTitle(trackId) {
+    let success = false;
+
     $.ajax({
         url: "https://api.spotify.com/v1/tracks/" + trackId,
         headers: {
             "Authorization": "Bearer " + access_token
         },
         success: function(response) {
-            console.log(response.name);
+            success = true;
             return response.name;
         }
     });
 
-    return "";
+    if(!success) return "";
 }
 
 function getFeatures(trackId) {
@@ -23,6 +25,7 @@ function getFeatures(trackId) {
         },
         success: function(response) {
             let title = getTitle(trackId);
+            console.log(title);
             if(title == "") return {};
 
             return {
