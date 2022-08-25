@@ -1,5 +1,5 @@
-import { refresh_token, error } from "./params";
-import { getFeatures } from "./song_info";
+import { refresh_token, error } from "./params.js";
+import { getFeatures } from "./song_info.js";
 
 var access_token = "";
 

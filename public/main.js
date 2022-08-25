@@ -1,5 +1,5 @@
-import { access_token } from "./params";
-import { getFeatures } from "./song_info";
+import { access_token } from "./params.js";
+import { getFeatures } from "./song_info.js";
 
 if(params.error) {
     alert("There was an error during authentication");

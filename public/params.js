@@ -8,7 +8,7 @@ function getHashParams() {
     return hashParams;
 }
 
-var params = getHashParams();
+let params = getHashParams();
 
 var access_token = params.access_token,
     refresh_token = params.refresh_token,
