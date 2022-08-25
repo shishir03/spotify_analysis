@@ -10,8 +10,6 @@ function getTitle(trackId) {
             return response.name;
         }
     });
-
-    return "";
 }
 
 function getFeatures(trackId) {
@@ -29,8 +27,6 @@ function getFeatures(trackId) {
             return features;
         }
     });
-
-    return {};
 }
 
 export { getFeatures };
