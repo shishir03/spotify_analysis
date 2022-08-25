@@ -14,14 +14,14 @@ function getTitle(trackId) {
     });
 }
 
-async function getFeatures(trackId) {
+function getFeatures(trackId) {
     return new Promise(function(resolve) {
         $.ajax({
             url: "https://api.spotify.com/v1/audio-features/" + trackId,
             headers: {
                 "Authorization": "Bearer " + access_token
             },
-            success: function(response) {
+            success: async function(response) {
                 let title = await getTitle(trackId);
                 if(title == undefined) return {};
     
