@@ -7,9 +7,12 @@ function getTitle(trackId) {
             "Authorization": "Bearer " + access_token
         },
         success: function(response) {
+            console.log(trackId);
             return response.name;
         }
     });
+
+    return "";
 }
 
 function getFeatures(trackId) {
@@ -19,14 +22,20 @@ function getFeatures(trackId) {
             "Authorization": "Bearer " + access_token
         },
         success: function(response) {
-            var features = {};
-            features.title = getTitle(trackId);
-            features.danceability = response.danceability;
-            features.energy = response.energy;
-            features.valence = response.valence;
-            return features;
+            let title = getTitle(trackId);
+            console.log(title);
+            if(title == "") return {};
+
+            return {
+                title: getTitle(trackId),
+                danceability: response.danceability,
+                energy: response.energy,
+                valence: response.valence
+            };
         }
     });
+
+    return {};
 }
 
 export { getFeatures };

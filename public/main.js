@@ -14,7 +14,6 @@ if(error) {
                 var items = response.items;
                 items.forEach(element => {
                     var trackId = element.uri.substring(14);
-                    console.log(trackId);
                     var features = getFeatures(trackId);
 
                     var tag = $("<tr></tr>");
