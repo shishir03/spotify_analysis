@@ -1,7 +1,7 @@
 import { access_token } from "./params.js";
 
 function getTitle(trackId) {
-    let success = false;
+    let bool = false;
 
     $.ajax({
         url: "https://api.spotify.com/v1/tracks/" + trackId,
@@ -9,12 +9,12 @@ function getTitle(trackId) {
             "Authorization": "Bearer " + access_token
         },
         success: function(response) {
-            success = true;
+            bool = true;
             return response.name;
         }
     });
 
-    if(!success) return "";
+    if(!bool) return "";
 }
 
 function getFeatures(trackId) {
