@@ -1,10 +1,10 @@
 import { access_token } from "./params.js";
 import { getFeatures } from "./song_info.js";
 
-if(params.error) {
+if(error) {
     alert("There was an error during authentication");
 } else {
-    if(params.access_token) {
+    if(access_token) {
         $.ajax({
             url: 'https://api.spotify.com/v1/me/top/tracks?limit=50',
             headers: {
