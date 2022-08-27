@@ -17,9 +17,10 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
  
-var client_id = process.env.CLIENT_ID; // Your client id
-var client_secret = process.env.CLIENT_SECRET; // Your secret
-var redirect_uri = 'https://spotify-feature-analysis.herokuapp.com/callback'; // Your redirect uri
+var client_id = process.env.CLIENT_ID;
+var client_secret = process.env.CLIENT_SECRET;
+var redirect_uri = 'https://spotify-feature-analysis.herokuapp.com/callback';
+// var redirect_uri = "http://localhost:8888/callback"; // Testing purposes
 
 /**
  * Generates a random string containing numbers and letters
@@ -91,18 +92,9 @@ app.get('/callback', function(req, res) {
 
         request.post(authOptions, function(error, response, body) {
             if (!error && response.statusCode === 200) {
-
                 access_token = body.access_token;
                 var refresh_token = body.refresh_token;
 
-                /* let s = new Spotify();
-                s.setAccessToken(access_token);
-                s.getMyTopTracks({"limit": 50}, function(err, data) {
-                    if(err) console.log(err);
-                    else console.log(data);
-                }); */
-
-                // we can also pass the token to the browser to make requests from there
                 res.redirect('/#' +
                 querystring.stringify({
                     access_token: access_token,
@@ -146,3 +138,4 @@ let port = process.env.PORT;
 if(port === null || port === "") port = 8888;
 console.log("Listening on " + port);
 app.listen(port);
+// app.listen(8888);     // For testing purposes

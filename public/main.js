@@ -1,9 +1,12 @@
 import { error, access_token } from "./params.js";
 import { getFeatures } from "./song_info.js";
+import { processInput } from "./process_input.js";
 
 if(error) {
     alert("There was an error during authentication");
 } else {
+    document.getElementById("search").addEventListener("submit", processInput);
+
     if(access_token) {
         $.ajax({
             url: 'https://api.spotify.com/v1/me/top/tracks?limit=50',
