@@ -27,11 +27,42 @@ function getFeatures(trackId) {
                     title: title,
                     danceability: response.danceability,
                     energy: response.energy,
-                    valence: response.valence
+                    valence: response.valence,
+                    duration: response.duration_ms/1000
                 });
             }
         });
     });
 }
 
-export { getFeatures };
+function trackAvg(tracks) {
+    let dAvg = 0;
+    let eAvg = 0;
+    let vAvg = 0;
+    let duration = 0;
+
+    for(let i = 0; i < tracks.length; i++) {
+        let features = tracks[i];
+        let d = features.duration;
+        dAvg += (features.danceability * d);
+        eAvg += (features.energy * d);
+        vAvg += (features.valence * d);
+        duration += d;
+    }
+
+    return {
+        danceability: dAvg / duration,
+        energy: eAvg / duration,
+        valence: vAvg / duration
+    }
+}
+
+function toPercent(num) {
+    return new Intl.NumberFormat("default", {
+        style: "percent",
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+    }).format(num);
+}
+
+export { getFeatures, trackAvg, toPercent };

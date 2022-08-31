@@ -9,8 +9,32 @@
   <body>
     <div class="container">
       <div id="login">
-        <h1>Click here to log in with Spotify</h1>
-        <a href="/login" class="btn btn-primary">Log in</a>
+        <h1>About</h1>
+        <p>Spotify has an audio analysis feature that can extract various bits of information from a given song, such as its key and tempo.
+            It also offers measurements of danceability, energy, and valence.
+        </p>
+        <p>
+            From Spotify's website:
+        </p>
+        <ul>
+            <li>
+                Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability,
+                 beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.
+            </li>
+            <li>
+                Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, 
+                loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing 
+                to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.
+            </li>
+            <li>
+                Valence is a measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive 
+                (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).
+            </li>
+        </ul>
+        <p>This website shows you those measurements for your top 50 tracks, and you can also search them up for any song you want by pasting in the link
+            in the search bar. Have fun!
+        </p>
+        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
       </div>
       <div id="loading">
           <h1>Loading...</h1>
@@ -23,6 +47,14 @@
             </form>
             <table id="track-search"></table>
             <h1>Your Top 50 Tracks</h1>
+            <button id="toggle-graph">Graph View</button>
+            <div id="graph">
+                <select id="graph-type">
+                    <option>Danceability</option>
+                    <option>Energy</option>
+                    <option>Valence</option>
+                </select>
+            </div>
             <table id="track-list">
                 <tr>
                     <th id="title">Name</th>
@@ -41,4 +73,3 @@
     <script type="module" src="main.js"></script>
   </body>
 </html>
-

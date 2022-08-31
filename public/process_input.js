@@ -1,7 +1,9 @@
 import { error } from "./params.js";
-import { getFeatures } from "./song_info.js";
+import { getFeatures, toPercent } from "./song_info.js";
 
-async function processInput() {
+async function processInput(e) {
+    e.preventDefault();
+
     var data = new FormData();
     data.append("link", document.getElementById("link").value);
 
@@ -20,9 +22,9 @@ async function processInput() {
         if(features == {}) alert("Error getting song data");
         else {
             var songTitle = $("<td></td>").append(features.title);
-            var danceability = $("<td></td>").append(features.danceability);
-            var energy = $("<td></td>").append(features.energy);
-            var valence = $("<td></td>").append(features.valence);
+            var danceability = $("<td></td>").append(toPercent(features.danceability));
+            var energy = $("<td></td>").append(toPercent(features.energy));
+            var valence = $("<td></td>").append(toPercent(features.valence));
 
             var col1 = $("<th></th>").append("Name");
             var col2 = $("<th></th>").append("Danceability");
