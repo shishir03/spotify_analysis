@@ -19,8 +19,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
  
 var client_id = process.env.CLIENT_ID;
 var client_secret = process.env.CLIENT_SECRET;
-var redirect_uri = 'https://spotify-feature-analysis.herokuapp.com/callback';
-// var redirect_uri = "http://localhost:8888/callback"; // Testing purposes
+// var redirect_uri = 'https://spotify-feature-analysis.herokuapp.com/callback';
+var redirect_uri = "http://localhost:8888/callback"; // Testing purposes
 
 /**
  * Generates a random string containing numbers and letters
@@ -134,8 +134,8 @@ app.get('/refresh_token', function(req, res) {
     });
 });
 
-let port = process.env.PORT;
+/* let port = process.env.PORT;
 if(port === null || port === "") port = 8888;
 console.log("Listening on " + port);
-app.listen(port);
-// app.listen(8888);     // For testing purposes
+app.listen(port); */
+app.listen(8888);     // For testing purposes

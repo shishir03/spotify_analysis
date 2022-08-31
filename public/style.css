@@ -1,0 +1,36 @@
+body {
+    background-color: #222;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+#login, #loggedin, #loading {
+    display: none;
+}
+
+#loggedin {
+    background-color: #444;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 25px;
+    border-radius: 25px;
+}
+
+input {
+    color: black;
+}
+
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 500px;
+}
+
+th, td {
+    padding: 15px;
+}
+
+form {
+    padding: 15px;
+}
